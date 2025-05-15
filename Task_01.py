@@ -1,4 +1,4 @@
-class String :
+class Palidrome :
 
     def __new__(cls, *args, **kwargs):
         print('Вызов __new__ для ' + str(cls) )
@@ -8,17 +8,19 @@ class String :
         print('Вызов метода __init__ для ' + str(self))
         self.string = string
 
-    def isPalindrome(self, string):
+    def isPalindrome(self):
         print ('Вызов метода isPalindrome для ' + str(self))
-        string = ''.join(filter(str.isalnum(string)))
-        return string.lower() == string[::-1].lower()
+        string = ''.join(filter(str.isalnum,self.string))
+
+        if string.lower() == string[::-1].lower() :
+            return True
+        else :
+            return False
 
 
-string = String(input())
+string = Palidrome(input())
 
-string.isPalindrome(string)
-
-
+print(string.isPalindrome())
 
 
 
