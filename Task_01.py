@@ -12,7 +12,7 @@ class Palidrome :
             return False
 
 
-string = Palidrome(input())
+string = Palidrome(input('Введите строку :'))
 
 print (string.isPalindrome())
 
