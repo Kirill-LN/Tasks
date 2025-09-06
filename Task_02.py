@@ -1,69 +1,52 @@
 
-from numpy import number
-
-class ListFilter:
+class Span:
     def __init__(self):
         self.input_list = list( input('Введите числа через пробел:').split())
         self.input_range_list = list( input('Введите диапазон:').split())
 
-        self.filter_list = []
+        self.list_only_num = []
         self.range_list = []
         self.results = []
 
+    def verify_type_list(self):
 
-    def filter_input(self):
-        print(f"Исходный список: {self.input_list}")
-        for item in self.input_list:
+        for num in self.input_list:
             try:
-                number = int(item)
-                self.filter_list.append(number)
+                num = int(num)
+                self.list_only_num.append(num)
             except ValueError:
                 continue
-        print(f"Отфильтрованный список: {self.filter_list}")
-        return self.filter_list
+        return self.list_only_num
 
-    def len_verify_range(self):
-        print(f"Проверка диапазона: {self.range_list}")
-        if len(self.range_list) != 2 :
-            print('Диапазон должен состоять из 2-х чисел')
-
-    def verify_type(self):
+    def verify_type_rangelist(self):
         try:
             self.range_list = [int(num) for num in self.input_range_list]
-
-            if not all(isinstance(num,int) for num in self.range_list):
-                raise TypeError("Все числа диапазона должны быть целыми!")
+            return True
 
         except ValueError as e:
-            print('Ошибка :' , e )
+            return False
 
-        else:
-            print(f"Проверенный диапазон: {self.range_list}")  # Отладка
-            return self.range_list
+    def len_verify_range(self):
+        if len(self.range_list) != 2 :
+            return False
+        return True
 
-    def coincidence(self):
-        self.filter_input()
-        self.range_list = self.verify_type()
-        self.len_verify_range()
-
-        print(f"Проверка входных данных: {self.input_list}, {self.input_range_list}")
-        if not self.input_list or not self.range_list:
+    def coincidence_list(self):
+        if len(self.range_list) != 2:
             return []
 
-        self.coincidence_list = list(range(self.range_list[0], self.range_list[1]))
-        print(f"Список совпадений: {self.coincidence_list}")
-
-        for number in self.filter_list:
-            if number in self.coincidence_list:
-                self.results.append(number)
-        print(f"Финальный результат: {self.results}")
-        return self.results
+        start, end = self.range_list
+        return  [num for num in self.list_only_num if start <= num <= end]
 
 
-list1 = ListFilter()
+    def coincidence(self):
+        if (self.verify_type_list() and
+        self.verify_type_rangelist() and
+        self.len_verify_range()):
 
-try:
-    result = list1.coincidence()
-    print('Новый список :' , result)
-except (ValueError,TypeError) as e:
-    print('Ошибка : ' , e)
+            self.results = self.coincidence_list()
+
+        print (f'Финальный список : {self.results}')
+
+list1 = Span()
+list1.coincidence()
