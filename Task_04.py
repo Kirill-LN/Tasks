@@ -38,9 +38,7 @@ class Sort:
                 result.append(max_value)
             else:
                 result.append(num) # остальные числа оставляем
-
         result.append(min_value)
-
         return result
 
 user_list = Sort(input('Введите список через пробел : '))

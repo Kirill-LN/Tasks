@@ -53,12 +53,11 @@ class Data:
         try:
             days_input = int(input('Введите количество дней: '))
             self.date_in_future(days_input)
-
             if self.future_data:
                 print(self.future_data.strftime('%d-%m-%Y %H:%M:%S'))
         except ValueError:
             print(self.data_obj.strftime('%d-%m-%Y %H:%M:%S'))
             print("Ошибка ввода. Пожалуйста, введите целое число.")
-
+            
 Today_data = Data(input('Какая сейчас дата и время ? Введите в формате: день, месяц, год, час, минуты, секунды (пример: 10 12 2025 13 54): '))
 Today_data.output()
