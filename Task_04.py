@@ -38,7 +38,13 @@ class Sort:
                 result.append(max_value)
             else:
                 result.append(num) # остальные числа оставляем
+<<<<<<< HEAD
         result.append(min_value)
+=======
+
+        result.append(min_value)
+
+>>>>>>> 27b1679cb9fa73711e7953a797ec09e2b2b3f8fc
         return result
 
 user_list = Sort(input('Введите список через пробел : '))

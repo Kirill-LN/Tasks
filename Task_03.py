@@ -46,4 +46,9 @@ max_odd = user_string.find_max_odd()
 if max_odd == None :
     print(None)
 else:
+<<<<<<< HEAD
     print(f'Максимальное нечетное число : {max_odd}')
+=======
+    print(f'Максимальное нечетное число : {max_odd}')
+
+>>>>>>> 27b1679cb9fa73711e7953a797ec09e2b2b3f8fc

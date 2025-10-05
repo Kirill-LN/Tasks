@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> 27b1679cb9fa73711e7953a797ec09e2b2b3f8fc
 class Span:
     def __init__(self,input_list = None, input_range_list = None ):
         self.input_list = input_list

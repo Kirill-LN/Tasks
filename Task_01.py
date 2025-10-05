@@ -14,4 +14,13 @@ class Palidrome :
 
 string = Palidrome(input('Введите строку :'))
 
+<<<<<<< HEAD
 print (string.isPalindrome())
+=======
+print (string.isPalindrome())
+
+
+
+
+
+>>>>>>> 27b1679cb9fa73711e7953a797ec09e2b2b3f8fc
